@@ -1,0 +1,125 @@
+:root {
+    --navy: #0F172A;
+    --slate: #64748B;
+    --border: #e2e8f0;
+    --blue: #3b82f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.split-screen {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* LEFT SIDE */
+.image-side {
+    flex: 1;
+    display: none; /* Mobile first: hidden */
+    position: relative;
+    background: url('image.png') center/cover no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4); /* Navy overlay */
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-text h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+
+/* RIGHT SIDE */
+.form-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 2rem;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+header h2 { font-size: 2rem; color: var(--navy); margin-bottom: 0.5rem; }
+header p { color: var(--slate); margin-bottom: 2rem; }
+
+/* INPUTS */
+.input-container { margin-bottom: 1.5rem; }
+.input-container label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; }
+
+input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.field-wrapper { position: relative; }
+
+#toggleRoll {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--slate);
+    cursor: pointer;
+}
+
+/* BUTTON */
+.primary-btn {
+    width: 100%;
+    background: var(--navy);
+    color: white;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.primary-btn:hover { background: #1e293b; }
+.primary-btn:active { transform: scale(0.98); }
+
+/* DESKTOP VIEW */
+@media (min-width: 1024px) {
+    .image-side { display: flex; }
+}
+/* Add this to the bottom of style.css */
+.hidden-section {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/*------------------------------------------------------------------------------------------*/
